@@ -1,0 +1,81 @@
+TP SYMFONY INITIATION
+Q1 / Définissez la notion en base de données
+	•	Les fonctions d’agrégation
+
+affiche le nombre d'annonce par utilisateur
+select Id_utilisateur, count(*) as nb
+from Annonce group by Id_utilisateur;
+
+	•	Clé étrangère
+Une table contient une clé primaire. Une clé primaire est constituée d'une ou plusieurs colonnes. 
+Les valeurs des colonnes qui constituent la clé primaire d'une table sont uniques pour 
+toutes les lignes de la table. La clé primaire d'une table permet donc de faire référence de manière univoque à chaque ligne de la table. 
+Exemple : Les tables pizzas et commandes possèdent toutes les deux une clé primaire qui est constituée de leur colonne id respective. 
+La colonne pizza_id de la table commandes fait référence à la colonne id (donc à la clé primaire) de la table pizzas. 
+Ce type de référence est appelée « clé étrangère ». 
+	•	Jointure interne
+	•	Jointure externe
+	•	Donnez un exemple d’utilisation avec le code associé
+
+Affiche les annonces avec le nom des utilisateurs
+SELECT  A.titre , U.nom -- champs qu'on veut afficher
+FROM 
+annonce A inner join utilisateur U -- les tables concernés
+on A.id_utilisateur = U.id ;--les clé de jointure
+
+Q2 / Création d’un projet Symfony
+	•	Créez un projet avec toutes les librairies associées en version 5.4
+	•	Quelles est la commande pour un lancement de projet sans les librairies associées
+
+   symfony new monprojet --version=5.4
+   composer require form
+
+	•	Quel sont les deux rôles de composer
+
+Prise de RDV réutilisable pour d’autres projets:
+
+-Archive en téléchargement
+-Mise à jours ?
+-Téléchargement ?
+-Organisation des dossier ?
+-Traduction
+
+Dépend d’une libraire:
+
+-Ranger les dossiers
+-Sans require
+-MAJ
+
+	•	Expliquez à quoi correspond le namespace et les use.
+
+Namespace ou espace de nom : Range les classes dans des espaces de noms comme des dossiers virtuels
+
+
+	•	Expliquez en quelques lignes la notion de MVC et comment il est construit dans un projet Symfony
+
+MVC : Route, Modele, vue, controller , Librairie : SimpleORM, Projet 
+
+Q3 / Création de page 
+	•	Créez une page Accueil
+	•	Envoyez une variable depuis le contrôleur à la vue Accueil
+
+Q4 / Création de page de newsletter
+	•	Créez un formulaire indépendant d’une entité contenant un champ « email » et un bouton « s’inscrire »
+
+Q5 / Créez un CRUD Article
+	•	Quel est le composant permettant de faire le lien avec la base de données ?
+     
+     symfony console make:entity
+      php bin/console make:migration
+      php bin/console doctrine:migrations:migrate
+
+	•	Commentez les classes générées par le maker bundle.
+
+Q6 / Créez un espace user avec une page de connexion et une page d’inscription
+	•	Commentez les classes générées par le maker bundle.
+
+Q7 / Créez un CRUD Catégorie accessible pour les utilisateurs connectés.
+
+Q8 / Créez un MENU dans votre site en créant des liens vers les différentes pages
+	•	Expliquez le fonctionnement de Twig
+
